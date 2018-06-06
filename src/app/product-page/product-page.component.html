@@ -2,6 +2,7 @@
 	<div class="container-product-info" *ngIf='product'>
 		<div class="container-product-info-title">
 			<h2>{{product.title}}</h2>
+			<h5>Рейтиг: {{ratingProd}}</h5>
 		</div>
 		<hr>
 		<div class="container-product-info-body">
@@ -9,9 +10,6 @@
 				<img [src]='"http://smktesting.herokuapp.com/static/"+product.img' onerror="this.src='assets/img/no_photo.jpg'">
 			</div>
 			<div class="container-info">
-				<div class="container-product-info-body-rating">
-					<h4>Рейтиг: {{ratingProd}}</h4>
-				</div>
 				<div class="container-product-info-body-text">
 					<p class="description">{{product.text}}</p>
 				</div>	

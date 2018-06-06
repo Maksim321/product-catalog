@@ -11,7 +11,7 @@ import { ApiUserService } from '../api-service/api-user.service';
 })
 export class ProductPageComponent implements OnInit {
   private sub: any;
-  private rating:1;
+  private rating:number;
   id:number;
   reviews:any;
   product:any;
@@ -22,6 +22,7 @@ export class ProductPageComponent implements OnInit {
 			  private route: ActivatedRoute) { }
   
   ngOnInit() {
+	this.rating = 1;
     this.sub = this.route.params.subscribe(params => {
        this.id = +params['id']; 
     });
