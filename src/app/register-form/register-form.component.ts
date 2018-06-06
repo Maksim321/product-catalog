@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import {ApiService} from '../api.service'
-
+import { ApiUserService } from '../api-service/api-user.service';
+import * as $ from 'jquery';
 
 @Component({
   selector: 'app-register-form',
@@ -10,19 +10,28 @@ import {ApiService} from '../api.service'
 })
 export class RegisterFormComponent implements OnInit {
 
-  constructor(private apiService: ApiService) { }
+  constructor(private apiUserService: ApiUserService) { }
 
   ngOnInit() {
+    $('#overlay').fadeIn(200,function(){ 	//Красиво показать форму
+      $('.modal_form') 
+        .css('display', 'block') 
+        .animate({opacity: 1, top: '50%'}, 200);
+      }
+    );
   }
 
-  OnSubmit(dataForm: NgForm) {
-    this.apiService.registerUser(dataForm.value['Login'], dataForm.value['Password'])
+  OnSubmit(dataForm: NgForm) {	//Регистрация пользователя
+    this.apiUserService.registerUser(dataForm.value['Login'], dataForm.value['Password'])
       .subscribe((data: any) => {
-        if (data.Succeeded == true) {
+        if (data.success == true) {
           console.log(data);
+		  alert("Зарегистрировались");
+		  window.location.reload();
         }
-        else
-          console.log(data);
+		else{
+		  alert(data.message);
+		}
       });
   }
 }

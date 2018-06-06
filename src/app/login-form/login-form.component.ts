@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import {ApiService} from '../api.service'
+import { ApiUserService } from '../api-service/api-user.service';
+import * as $ from 'jquery';
 
 @Component({
   selector: 'app-login-form',
@@ -9,21 +10,27 @@ import {ApiService} from '../api.service'
 })
 export class LoginFormComponent implements OnInit {
 
-  constructor(private apiService: ApiService) { }
+  constructor(private apiUserService: ApiUserService) { }
 
-  ngOnInit() {
-
+  ngOnInit() {		
+    $('#overlay').fadeIn(200,function(){ 	//Красиво показать форму
+      $('.modal_form') 
+        .css('display', 'block') 
+        .animate({opacity: 1, top: '50%'}, 200);
+      }
+    );
   }
 
-  OnSubmit(dataForm: NgForm) {
-    this.apiService.loginUser(dataForm.value['Login'], dataForm.value['Password'])
+  OnSubmit(dataForm: NgForm) {		//Вход пользователя
+    this.apiUserService.loginUser(dataForm.value['Login'], dataForm.value['Password'])
       .subscribe((data: any) => {
-        if (data.Succeeded == true) {
-          console.log(data);
+        if (data.success == true) {
+		  this.apiUserService.login(data.token, dataForm.value['Login']);
+		  window.location.reload();
         }
         else
-          console.log(data);
-      });
+          alert(data.message);
+      },
+	  error =>  alert(error.statusText));
   }
-
 }
