@@ -1,0 +1,31 @@
+ <header>
+ 	<div class="headerContent">
+		<div class="logo">
+			<a routerLink="/" class="logo-link">
+				Продукти
+			</a>
+		</div>
+		
+		<ul>
+			<ng-container *ngIf="loggedIn; then first else second"></ng-container>
+			<ng-template #first>
+			<li>
+				<a href="/" class="header-login-link" (click)="LogOut()">
+					Выход
+				</a>
+			</li>
+			</ng-template>
+			<ng-template #second>
+			<li (click)="Register()">
+					Регистрация
+			</li>
+			<li (click)="LogIn()">
+					Войти
+			</li>
+			</ng-template>
+		</ul>
+	</div>
+ </header>
+  <ng-container *ngIf='ModalFormComponent'>
+	<ndc-dynamic [ndcDynamicComponent]="ModalFormComponent"> </ndc-dynamic>
+ </ng-container>	

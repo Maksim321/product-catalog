@@ -1,0 +1,25 @@
+.col-list-prod{
+	float:left;
+	width: 25%;
+    color: #000;
+    position: relative;
+}
+
+.container-wrap{
+	padding: 25px;
+	position: absolute;
+}
+
+@media screen and (min-width:480px) and (max-width:768px) {
+ 	.col-list-prod{
+		float:left;
+		width: 33%;
+	}
+}
+
+@media screen and (min-width:100px) and (max-width:480px) {
+	.col-list-prod{
+		float:left;
+		width: 50%;
+	}
+}

@@ -1,0 +1,15 @@
+<div class="product-item">
+	<div class="product-img">
+		<a [routerLink]="['/product', product.id]">
+			<img [src]='"http://smktesting.herokuapp.com/static/"+product.img' onerror="this.src='assets/img/no_photo.jpg'">
+		</a>
+	</div>
+	<div class="product-list">
+		<h3>{{product.title}}</h3>
+		<div class="actions">
+			<div class="add-to-links">
+				<a [routerLink]="['/product', product.id]" class="learnMore">Подробнее</a>
+			</div>
+		</div>
+    </div>
+</div>

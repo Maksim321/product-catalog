@@ -1,0 +1,53 @@
+<div class="container-product">
+	<div class="container-product-info" *ngIf='product'>
+		<div class="container-product-info-title">
+			<h2>{{product.title}}</h2>
+		</div>
+		<hr>
+		<div class="container-product-info-body">
+			<div class="container-product-info-body-img">
+				<img [src]='"http://smktesting.herokuapp.com/static/"+product.img' onerror="this.src='assets/img/no_photo.jpg'">
+			</div>
+			<div class="container-info">
+				<div class="container-product-info-body-rating">
+					<h4>Рейтиг: {{ratingProd}}</h4>
+				</div>
+				<div class="container-product-info-body-text">
+					<p class="description">{{product.text}}</p>
+				</div>	
+			</div>
+		</div>
+	</div>
+	<div class="container-product-textarea" *ngIf="loggedIn">
+	<hr>
+		Поставить рейтинг: {{rating}}
+		<div class="stars">
+			<div class="on"></div>
+			<div class="stars-span">
+				<span (click)="setRating(1)"></span>
+				<span (click)="setRating(2)"></span>
+				<span (click)="setRating(3)"></span>
+				<span (click)="setRating(4)"></span>
+				<span (click)="setRating(5)"></span>
+			</div>
+		</div>
+		<form #reviewForm="ngForm" (ngSubmit)="OnSubmit(reviewForm)">
+			<div class="row">
+				<textarea id="text-review" name="text-review"  placeholder="Коментарий" ngModel></textarea>
+			</div>
+			<div class="row">
+				<button class="submit-btn" type="submit">Отправить</button>
+			</div>
+		</form>
+	</div>
+	<h3>Отзывы: </h3>
+	<hr>
+	<div class="container-product-reviews" *ngFor="let review of reviews ">
+		<div class="container-product-reviews-text">
+			{{review.text}}
+		</div>
+		<div class="container-product-reviews-footer">
+			Пользователь: {{review.created_by.username}} | Дата: {{review.created_at}} | Рейтиг: {{review.rate}}
+		</div>
+	</div>
+</div>
