@@ -22,11 +22,19 @@ export class RegisterFormComponent implements OnInit {
   }
 
   OnSubmit(dataForm: NgForm) {	//Регистрация пользователя
+	if(dataForm.value['Login'].length<3){
+		alert("Короткий логин");
+		return;
+	}
+	else if (dataForm.value['Password'].length<3){
+		alert("Короткий пароль");
+		return;
+	}
     this.apiUserService.registerUser(dataForm.value['Login'], dataForm.value['Password'])
       .subscribe((data: any) => {
         if (data.success == true) {
-          console.log(data);
 		  alert("Зарегистрировались");
+		  this.apiUserService.login(data.token, dataForm.value['Login']);
 		  window.location.reload();
         }
 		else{

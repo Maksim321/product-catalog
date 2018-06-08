@@ -34,7 +34,7 @@
 
 @media screen and (min-width:768px) {
  	.col-list-prod{
-		width: 25%;
+		width: 33%;
 	}
 	
 	.container-wrap{
@@ -43,6 +43,10 @@
 }
 
 @media screen and (min-width:1000px) {
+	 .col-list-prod{
+		width: 25%;
+	}
+	
 	.container-wrap{
 		padding-left: 50px;
 		padding-right: 50px;

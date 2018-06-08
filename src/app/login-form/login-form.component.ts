@@ -22,6 +22,14 @@ export class LoginFormComponent implements OnInit {
   }
 
   OnSubmit(dataForm: NgForm) {		//Вход пользователя
+	if(dataForm.value['Login'].length<3){
+		alert("Короткий логин");
+		return;
+	}
+	else if (dataForm.value['Password'].length<3){
+		alert("Короткий пароль");
+		return;
+	}
     this.apiUserService.loginUser(dataForm.value['Login'], dataForm.value['Password'])
       .subscribe((data: any) => {
         if (data.success == true) {
