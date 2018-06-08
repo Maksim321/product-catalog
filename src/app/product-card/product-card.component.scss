@@ -3,14 +3,17 @@
 	margin: 0 auto;
 	padding: 10px 10px 5px 10px;
 	margin:5px;
-	background: #f5f5f5;
-	font-family: "Open Sans";
+	//background: #f5f5f5;
+	background:white;
 	overflow: hidden;
 	transition: 0.2s;
-	
-		background: #f5f5f5;
-	border-radius: 2px;
-	border: 1px solid #ff6161;
+	border-radius: 1px;
+	//border: 1px solid #ff6161;
+	border: 1px solid #e2e2e2;
+}
+
+.product-item:hover{
+	box-shadow: 0px 0px 15px -3px #000;
 }
 
 .product-img img {
@@ -50,7 +53,6 @@
 }
 .learnMore:after {
 	display: inline-block;
-	font-family: FontAwesome;
 	font-size: 13px;
 }
 

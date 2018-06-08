@@ -10,11 +10,10 @@
 
 .container-product-info,
 .container-product .container-product-textarea textarea,
-.container-product-reviews,
-.submit-btn{
-	background: #f5f5f5;
-	border-radius: 2px;
-	border: 1px solid #ff6161;
+.container-product-reviews{
+	background: white;
+	border-radius: 1px;
+	border: 1px solid #d4d4d4;
 }
 
 .container-product-info-title{
@@ -51,7 +50,7 @@
 }
 
 .container-product-reviews-footer{
-	border-top: 1px solid #ff6161;;
+	border-top: 1px solid #d4d4d4;
 	height: 20%;
 	font-size: 12px;
 }
@@ -86,11 +85,12 @@
 	transition: 0.2s;
 	-webkit-transition: 0.2s;
 	background: rgba(0, 0, 0, 0.0);
+	color:#000;
+	border: 1px solid #a9a9a9;
 }
 
 .submit-btn:hover {
-    background-color: #ff6161; 
-    color: white;
+    background-color: white; 
 	cursor: pointer;
 }
 

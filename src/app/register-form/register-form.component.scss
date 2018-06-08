@@ -13,11 +13,11 @@
 	font-size: 20px;
 	width:100%;
 	text-align: center;
-	border-bottom: 1px solid #d3cfcf;
+	border-bottom: 1px solid #d4d4d4;
 	padding-top:5px;
 	padding-bottom:5px;
-	background:#ff6161;
-	color: #fff;
+	background:#f5f5f5;
+	color: #000;
 }
 
 .content-page-body{
@@ -33,16 +33,16 @@ input{
 }
 
 input:focus {
-    border: 1px solid #ff9191;
+    border: 1px solid #d4d4d4;
 }
 
 button{
 	background-color: #fff;
-    border: 1px solid #ff6161;
+    border: 1px solid #d4d4d4;
     color: #000;
     display: inline-block;
     padding: 7px 12px;
-    border-radius: 2px;
+    border-radius: 1px;
     width: 95%;
 	cursor:pointer;
 	font-weight: 700;
@@ -50,7 +50,7 @@ button{
 }
 
 button:hover{
-	background-color: #ff6161;
+	background-color: #e8e8e8;
 }
 
 .modal_form .modal_close {
